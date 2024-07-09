@@ -1,6 +1,7 @@
 import { useContext } from 'react'
-import { Status, TaskListContainer, TaskListTable } from './styles'
+import { TaskListContainer, TaskListTable } from './styles'
 import { TaskContext } from '../../context/TaskContext'
+import { TaskItem } from '../TaskItem'
 
 export function TaskList() {
   const taskContext = useContext(TaskContext)
@@ -23,14 +24,7 @@ export function TaskList() {
           </thead>
           <tbody>
             {tasks.map((task) => (
-              <tr key={task.id}>
-                <td>{task.title}</td>
-                <td>
-                  <Status statusColor={task.completed ? 'green' : 'yellow'}>
-                    {task.completed ? 'Concluída' : 'Incompleta'}
-                  </Status>
-                </td>
-              </tr>
+              <TaskItem key={task.id} task={task} />
             ))}
           </tbody>
         </table>
