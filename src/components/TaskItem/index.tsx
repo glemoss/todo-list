@@ -26,7 +26,11 @@ export function TaskItem({ task }: TaskItemProps) {
   return (
     <>
       <tr>
-        <td>{task.title}</td>
+        <td
+          style={{ textDecoration: task.completed ? 'line-through' : 'none' }}
+        >
+          {task.title}
+        </td>
         <td>
           <Status statusColor={task.completed ? 'green' : 'yellow'}>
             {task.completed ? 'Concluída' : 'Incompleta'}
