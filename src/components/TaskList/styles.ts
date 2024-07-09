@@ -16,7 +16,7 @@ export const TaskListContainer = styled.main`
 export const TaskListTable = styled.div`
   flex: 1;
   overflow: auto;
-  max-height: 23rem;
+  max-height: calc(100vh - 26rem);
 
   table {
     width: 100%;
@@ -28,7 +28,7 @@ export const TaskListTable = styled.div`
       color: ${(props) => props.theme['gray-100']};
       padding: 1rem;
       text-align: left;
-      font-size: 0.875;
+      font-size: 0.875rem;
       line-height: 1.6;
 
       &:first-child {
