@@ -48,7 +48,6 @@ export function TaskItem({ task }: TaskItemProps) {
               onClick={() => toggleTaskCompletion(task.id)}
               size={16}
               cursor={'pointer'}
-              color="green"
             />
           )}
         </td>

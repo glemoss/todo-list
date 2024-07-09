@@ -10,9 +10,10 @@ interface StatusProps {
 }
 
 export const Status = styled.span<StatusProps>`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  width: 6rem;
 
   &::before {
     content: '';
@@ -20,5 +21,6 @@ export const Status = styled.span<StatusProps>`
     height: 0.5rem;
     border-radius: 50%;
     background: ${(props) => props.theme[STATUS_COLORS[props.statusColor]]};
+    margin-right: 0.25rem;
   }
 `
