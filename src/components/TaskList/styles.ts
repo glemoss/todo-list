@@ -16,7 +16,7 @@ export const TaskListContainer = styled.main`
 export const TaskListTable = styled.div`
   flex: 1;
   overflow: auto;
-  max-height: 22rem;
+  max-height: 23rem;
 
   table {
     width: 100%;

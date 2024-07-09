@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useContext } from 'react'
 import { Status, TaskListContainer, TaskListTable } from './styles'
-import { Task } from '../../@types/task'
+import { TaskContext } from '../../context/TaskContext'
 
 export function TaskList() {
-  const [tasks, setTasks] = useState<Task[]>([])
+  const taskContext = useContext(TaskContext)
 
-  useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/todos')
-      .then((response) => response.json())
-      .then((data) => setTasks(data.slice(0, 10)))
-      .catch((error) => console.error('Error fetching tasks:', error))
-  }, [])
+  if (!taskContext) {
+    return null
+  }
+
+  const { tasks } = taskContext
 
   return (
     <TaskListContainer>
@@ -28,7 +27,7 @@ export function TaskList() {
                 <td>{task.title}</td>
                 <td>
                   <Status statusColor={task.completed ? 'green' : 'yellow'}>
-                    {task.completed ? 'Concluído' : 'Em andamento'}
+                    {task.completed ? 'Concluída' : 'Incompleta'}
                   </Status>
                 </td>
               </tr>

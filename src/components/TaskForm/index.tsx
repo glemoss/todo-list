@@ -1,6 +1,8 @@
+import { useContext } from 'react'
 import { Task } from '../../@types/task'
 import { ErrorMessage, NewTaskForm, TaskButton, TaskInput } from './styles'
 import { useForm } from 'react-hook-form'
+import { TaskContext } from '../../context/TaskContext'
 
 export function TaskForm() {
   const {
@@ -10,6 +12,14 @@ export function TaskForm() {
     reset,
   } = useForm<Task>()
 
+  const taskContext = useContext(TaskContext)
+
+  if (!taskContext) {
+    return null
+  }
+
+  const { addTask } = taskContext
+
   const onSubmit = (data: Task) => {
     const newTask: Task = {
       userId: 1,
@@ -18,7 +28,7 @@ export function TaskForm() {
       completed: false,
     }
 
-    console.log(newTask)
+    addTask(newTask)
     reset()
   }
 
