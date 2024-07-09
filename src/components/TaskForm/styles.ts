@@ -4,7 +4,9 @@ export const NewTaskForm = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3.5rem;
+  gap: 1rem;
+
+  margin-top: 2rem;
 `
 
 export const TaskInput = styled.input`
@@ -21,4 +23,13 @@ export const TaskButton = styled.button`
   color: ${(props) => props.theme['gray-100']};
   background: ${(props) => props.theme['green-500']};
   cursor: pointer;
+
+  &:hover {
+    background: ${(props) => props.theme['green-700']};
+  }
+`
+export const ErrorMessage = styled.p`
+  height: 1rem;
+  color: ${(props) => props.theme['red-500']};
+  margin: 0;
 `
