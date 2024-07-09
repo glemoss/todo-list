@@ -20,6 +20,9 @@ export function TaskList() {
             <tr>
               <th>Tarefa</th>
               <th>Status</th>
+              <th />
+              <th />
+              <th />
             </tr>
           </thead>
           <tbody>
